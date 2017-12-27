@@ -5,10 +5,10 @@ use Subset::Helper;
 has $.api-url = 'https://alerts.perl6.org/api/v1';
 
 role X is Exception {}
-class X::NotFound does WWW::P6lert::X is Exception {
+class X::NotFound does WWW::P6lert::X {
     method message { 'Alert not found' }
 }
-class X::Network  does WWW::P6lert::X is Exception {
+class X::Network  does WWW::P6lert::X {
     method message { 'P6lert API network error occured' }
 }
 sub err ($_) {
@@ -30,7 +30,7 @@ class Alert {
     has Str:D      $.affects  is required;
     has Severity:D $.severity is required;
 
-    method  new { X::Cannot::New: :class(::?CLASS) }
+    method  new { X::Cannot::New.new: :class(::?CLASS) }
     method !new { self.bless: %_ }
     method time-human {
         DateTime.new($!time).Date
@@ -45,7 +45,7 @@ method all {
     (jget "$!api-url/all"
         orelse fail .&err)<alerts>.map: { WWW::P6lert::Alert!new: |$_ }
 }
-multi method since (DateTish $time) {
+multi method since (Dateish $time) {
     (jget "$!api-url/since/" ~ $time.DateTime.Instant.to-posix.head.Int
         orelse fail .&err)<alerts>.map: { WWW::P6lert::Alert!new: |$_ }
 }

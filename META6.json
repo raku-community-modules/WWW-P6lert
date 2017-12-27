@@ -10,7 +10,8 @@
         "Subset::Helper"
     ],
     "test-depends" : [
-        "Testo"
+        "Testo",
+        "Test::When"
     ],
     "provides"     : {
         "lib" : "lib/WWW/P6lert.pm6"
