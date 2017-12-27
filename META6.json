@@ -1,0 +1,20 @@
+{
+    "perl"         : "6.c",
+    "name"         : "WWW::P6lert",
+    "license"      : "Artistic-2.0",
+    "version"      : "1.001001",
+    "description"  : "Implementation of alerts.perl6.org API",
+    "tags"         : [ "WWW" ],
+    "depends"      : [
+        "WWW",
+        "Subset::Helper"
+    ],
+    "test-depends" : [
+        "Testo"
+    ],
+    "provides"     : {
+        "lib" : "lib/WWW/P6lert.pm6"
+    },
+    "authors"       : ["Zoffix Znet"],
+    "support"       : {"source" : "https://github.com/zoffixznet/perl6-WWW-P6lert.git"}
+}
