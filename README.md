@@ -4,6 +4,33 @@
 
 `WWW::P6lert` - Implementation of [alerts.perl6.org](https://alerts.perl6.org) API
 
+# TABLE OF CONTENTS
+- [NAME](#name)
+- [SYNOPSIS](#synopsis)
+- [DESCRIPTION](#description)
+- [TESTING](#testing)
+- [ATTRIBUTES](#attributes)
+    - [`.api-url`](#api-url)
+- [CONSTRUCTOR](#constructor)
+    - [`.new`](#new)
+- [METHODS](#methods)
+    - [`.all`](#all)
+    - [`.last`](#last)
+    - [`.since`](#since)
+    - [`.alert`](#alert)
+- [`WWW::P6lert::Alert` object](#wwwp6lertalert-object)
+    - [ATTRIBUTES](#attributes-1)
+        - [`.id`](#id)
+        - [`.alert`](#alert-1)
+        - [`.time`](#time)
+        - [`.creator`](#creator)
+        - [`.affects`](#affects)
+        - [`.alert`](#alert-2)
+- [REPOSITORY](#repository)
+- [BUGS](#bugs)
+- [AUTHOR](#author)
+- [LICENSE](#license)
+
 # SYNOPSIS
 
 Alerts fetcher that keeps track of when it last fetched alerts:
