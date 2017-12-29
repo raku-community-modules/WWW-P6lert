@@ -2,7 +2,7 @@
     "perl"         : "6.c",
     "name"         : "WWW::P6lert",
     "license"      : "Artistic-2.0",
-    "version"      : "1.001001",
+    "version"      : "1.001002",
     "description"  : "Implementation of alerts.perl6.org API",
     "tags"         : [ "WWW" ],
     "depends"      : [
