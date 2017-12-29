@@ -9,7 +9,6 @@ class WWW::P6lert::X::Network does WWW::P6lert::X {
 
 class WWW::P6lert {
     use WWW;
-    use Subset::Helper;
 
     has $.api-url = %*ENV<WWW_P6LERT_API_URL> // 'https://alerts.perl6.org/api/v1';
 

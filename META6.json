@@ -2,12 +2,11 @@
     "perl"         : "6.c",
     "name"         : "WWW::P6lert",
     "license"      : "Artistic-2.0",
-    "version"      : "1.001003",
+    "version"      : "1.001004",
     "description"  : "Implementation of alerts.perl6.org API",
     "tags"         : [ "WWW" ],
     "depends"      : [
-        "WWW",
-        "Subset::Helper"
+        "WWW"
     ],
     "test-depends" : [
         "Testo",
