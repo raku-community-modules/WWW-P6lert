@@ -9,7 +9,6 @@
 Alerts fetcher that keeps track of when it last fetched alerts:
 
 ```perl6
-    use lib <lib>;
     use WWW::P6lert;
 
     my $conf := $*HOME.add: '.last-p6lert.data';
