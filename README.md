@@ -2,7 +2,7 @@
 
 # NAME
 
-`WWW::P6lert` - Implementation of [alerts.perl6.org](https://alerts.perl6.org) API
+`WWW::P6lert` - Implementation of [alerts.raku.org](https://alerts.raku.org) API
 
 # TABLE OF CONTENTS
 - [NAME](#name)
@@ -35,7 +35,7 @@
 
 Alerts fetcher that keeps track of when it last fetched alerts:
 
-```perl6
+```raku
     use WWW::P6lert;
 
     my $conf := $*HOME.add: '.last-p6lert.data';
@@ -73,8 +73,8 @@ Alerts fetcher that keeps track of when it last fetched alerts:
 
 # DESCRIPTION
 
-Implementation of [alerts.perl6.org](https://alerts.perl6.org) API, as
-described on [alerts.perl6.org/api](https://alerts.perl6.org/api)
+Implementation of [alerts.raku.org](https://alerts.raku.org) API, as
+described on [alerts.raku.org/api](https://alerts.raku.org/api)
 
 # TESTING
 
@@ -86,12 +86,12 @@ You can also set `WWW_P6LERT_API_URL` env var to the alternate value for
 
 ## `.api-url`
 
-```perl6
+```raku
     WWW::P6lert.new: :api-url<http://localtesting:10000/api/v1>;
 ```
 
 **Optional**. `Str` that specifies the API URL to use. **Defaults to:**
-`https://alerts.perl6.org/api/v1` and you unless you're testing something
+`https://alerts.raku.org/api/v1` and you unless you're testing something
 with a local build of the site, you don't ever need to change.
 
 # CONSTRUCTOR
@@ -99,7 +99,7 @@ with a local build of the site, you don't ever need to change.
 ## `.new`
 
 
-```perl6
+```raku
     my $alerts := WWW::P6lert.new;
 
     my $alerts := WWW::P6lert.new: :api-url<http://localtesting:10000/api/v1>;
@@ -110,27 +110,27 @@ parameter, providing the value for `.api-url` attribute.
 
 # METHODS
 
-On network error, all methods [`fail`](https://docs.perl6.org/routine/fail)
+On network error, all methods [`fail`](https://docs.raku.org/routine/fail)
 with `WWW::P6lert::X::Network` error, which does `WWW::P6lert::X` role
 and whose `Str` attribute `.error` has explanation for failure.
 
 ## `.all`
 
-```perl6
+```raku
     method all ();
 ```
 
 Gives all alerts available on the site. Returns a `Seq` where each item
 is a `WWW::P6lert::Alert` object representing an alert.
 
-```perl6
+```raku
     say "All alerts:";
     say "Alert ID#{.id} says {.alert}" for $alerts.all;
 ```
 
 ## `.last`
 
-```perl6
+```raku
     method last (UInt $n where * < 1_000_000);
 ```
 
@@ -138,14 +138,14 @@ Gives last `$n` most recent alerts available on the site.
 Returns a `Seq` where each item is a `WWW::P6lert::Alert` object representing
 an alert.
 
-```perl6
+```raku
     say "5 most recent alerts:";
     say "Alert ID#{.id} says {.alert}" for $alerts.last: 5;
 ```
 
 ## `.since`
 
-```perl6
+```raku
     multi method since (Dateish $time);
     multi method since (UInt $time);
 ```
@@ -155,7 +155,7 @@ Returns a `Seq` where each item is a `WWW::P6lert::Alert` object representing
 an alert. If `$time` is given as a `UInt`, it's assumed to mean
 [Unix epoch time](https://en.wikipedia.org/wiki/Unix_time).
 
-```perl6
+```raku
     say "Alerts since yesterday:";
     say "Alert ID#{.id} says {.alert}"
         for $alerts.since: Date.today.earlier: :day;
@@ -163,7 +163,7 @@ an alert. If `$time` is given as a `UInt`, it's assumed to mean
 
 ## `.alert`
 
-```perl6
+```raku
     method alert (UInt $id);
 ```
 
@@ -171,7 +171,7 @@ Returns `WWW::P6lert::Alert` object representing an alert whose ID is the `$id`.
 If no such alert exists, [`fails`](https://docs.perl6.org/routine/fail)
 with `WWW::P6lert::X::Network` error, which does `WWW::P6lert::X` role.
 
-```perl6
+```raku
     $alerts.alert: 42
         andthen "Alert ID#42 says {.alert}".say
         orelse "Couldn't get it";
@@ -217,12 +217,12 @@ is absent, contains an empty string.
 #### REPOSITORY
 
 Fork this module on GitHub:
-https://github.com/zoffixznet/perl6-WWW-P6lert
+https://github.com/raku-community-modules/WWW-P6lert
 
 #### BUGS
 
 To report bugs or request features, please use
-https://github.com/zoffixznet/perl6-WWW-P6lert/issues
+https://github.com/raku-community-modules/WWW-P6lert/issues
 
 #### AUTHOR
 
