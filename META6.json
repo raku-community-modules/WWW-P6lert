@@ -20,5 +20,5 @@
         "WWW::P6lert::Alert" : "lib/WWW/P6lert.pm6"
     },
     "authors"       : ["Zoffix Znet"],
-    "support"       : {"source" : "https://github.com/zoffixznet/perl6-WWW-P6lert.git"}
+    "support"       : {"source" : "https://github.com/raku-community-modules/WWW-P6lert.git"}
 }
